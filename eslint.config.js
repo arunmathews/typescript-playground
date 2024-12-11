@@ -13,6 +13,9 @@ export default tseslint.config(
 	{
 		extends: tseslint.configs.recommendedTypeChecked,
 		files: ["**/*.js", "**/*.ts"],
+		rules: {
+			"n/no-missing-import": "off",
+		},
 		languageOptions: {
 			parserOptions: {
 				projectService: { allowDefaultProject: ["*.config.*s"] },
@@ -35,7 +38,6 @@ export default tseslint.config(
 		files: ["test/**/*.ts"],
 		rules: {
 			"@typescript-eslint/no-unsafe-assignment": "off",
-			"n/no-missing-import": "off",
 		},
 	},
 );
