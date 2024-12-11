@@ -9,7 +9,7 @@
 	"license": "MIT",
 	"author": {
 		"name": "arunmathews",
-		"email": "(none)"
+		"email": "arun.a.mathews@gmail.com"
 	},
 	"type": "module",
 	"main": "./lib/index.js",
@@ -32,12 +32,14 @@
 		"*": "prettier --ignore-unknown --write"
 	},
 	"dependencies": {
-		"@swan-io/boxed": "3.1.2"
+		"@swan-io/boxed": "3.1.2",
+		"google-libphonenumber": "3.2.40"
 	},
 	"devDependencies": {
 		"@eslint/js": "9.16.0",
 		"@release-it/conventional-changelog": "9.0.3",
 		"@types/eslint__js": "8.42.3",
+		"@types/google-libphonenumber": "7.4.30",
 		"@types/node": "22.10.2",
 		"@vitest/coverage-v8": "2.1.8",
 		"@vitest/eslint-plugin": "1.1.16",
