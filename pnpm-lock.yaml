@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@swan-io/boxed':
+        specifier: 3.1.2
+        version: 3.1.2(typescript@5.7.2)
     devDependencies:
       '@eslint/js':
         specifier: 9.16.0
@@ -692,6 +696,14 @@ packages:
     resolution: {integrity: sha512-lGFf08pbkEac0NYgVf4hdANpAgApRjNByLXB+WBip3qj1iendOIyAwP2GKkKbQMNVy2r1xxDf0ssfWscoiC+Vw==}
     engines: {node: '>=8.10'}
     hasBin: true
+
+  '@swan-io/boxed@3.1.2':
+    resolution: {integrity: sha512-F/GZMYeC29cOHHSjURp/kL3iT+kouDfbt/fV1Y53zpC2M9rmlH/zkjX7z//wc8VRwXE5QksxMahhPlwm9QTGOA==}
+    peerDependencies:
+      typescript: '>=5.0.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   '@tootallnate/quickjs-emscripten@0.23.0':
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
@@ -3193,6 +3205,10 @@ snapshots:
       commander: 4.1.1
       ignore: 5.3.2
       p-map: 4.0.0
+
+  '@swan-io/boxed@3.1.2(typescript@5.7.2)':
+    optionalDependencies:
+      typescript: 5.7.2
 
   '@tootallnate/quickjs-emscripten@0.23.0': {}
 

@@ -6,7 +6,7 @@ export default defineConfig({
 		coverage: {
 			all: true,
 			exclude: ["lib"],
-			include: ["src"],
+			include: ["test"],
 			reporter: ["html", "lcov"],
 		},
 		exclude: ["lib", "node_modules"],
