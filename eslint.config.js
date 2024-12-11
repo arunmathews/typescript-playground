@@ -32,9 +32,10 @@ export default tseslint.config(
 	},
 	{
 		extends: [vitest.configs.recommended],
-		files: ["**/*.test.*"],
+		files: ["test/**/*.ts"],
 		rules: {
 			"@typescript-eslint/no-unsafe-assignment": "off",
+			"n/no-missing-import": "off",
 		},
 	},
 );
