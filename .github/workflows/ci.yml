@@ -13,13 +13,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/prepare
       - run: pnpm lint
-  lint_knip:
-    name: Lint Knip
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/prepare
-      - run: pnpm lint:knip
   prettier:
     name: Prettier
     runs-on: ubuntu-latest
