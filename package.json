@@ -11,6 +11,7 @@
 		"name": "arunmathews",
 		"email": "arun.a.mathews@gmail.com"
 	},
+	"type": "module",
 	"files": [
 		"lib/",
 		"package.json",

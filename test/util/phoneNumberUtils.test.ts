@@ -1,7 +1,7 @@
 import {
 	parsePhoneList,
 	normalizePhoneNumber,
-} from "../../src/util/phoneNumberUtils";
+} from "../../src/util/phoneNumberUtils.js";
 import { assert, test } from "vitest";
 
 test("returns array of valid numbers", () => {

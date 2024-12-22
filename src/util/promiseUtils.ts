@@ -1,6 +1,6 @@
 import { Result } from "@swan-io/boxed";
 
-import { is } from "./typeUtils";
+import { is } from "./typeUtils.js";
 
 export const isRejected = is<
 	PromiseSettledResult<unknown>,

@@ -4,7 +4,7 @@ import {
 	PhoneNumberUtil,
 } from "google-libphonenumber";
 
-import { is } from "./typeUtils";
+import { is } from "./typeUtils.js";
 
 const PHONE_UTIL = PhoneNumberUtil.getInstance();
 

@@ -1,6 +1,7 @@
 {
 	"compilerOptions": {
 		"declaration": true,
+		"allowSyntheticDefaultImports": true,
 		"declarationMap": true,
 		"esModuleInterop": true,
 		"module": "NodeNext",
@@ -14,7 +15,8 @@
 		"moduleResolution": "nodenext",
 		"baseUrl": ".",
 		"paths": {
-			"@elemproginter/*": ["elemproginter/*"]
+			"@elemproginter/*": ["elemproginter/*"],
+			"@util": ["util/*"]
 		}
 	},
 	"include": ["src/**/*", "test/**/*"],
