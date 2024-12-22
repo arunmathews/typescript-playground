@@ -19,8 +19,5 @@
 			"@util": ["util/*"]
 		}
 	},
-	"include": ["src/**/*", "test/**/*"],
-	"ts-node": {
-		"require": ["tsconfig-paths/register"]
-	}
+	"include": ["src/**/*", "test/**/*"]
 }
