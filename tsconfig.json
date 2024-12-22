@@ -3,7 +3,7 @@
 		"declaration": true,
 		"declarationMap": true,
 		"esModuleInterop": true,
-		"module": "ES2022",
+		"module": "ESNext",
 		"noEmit": true,
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
@@ -11,7 +11,14 @@
 		"strict": true,
 		"lib": ["ES2022"],
 		"target": "ES2022",
-		"moduleResolution": "bundler"
+		"moduleResolution": "node",
+		"baseUrl": ".",
+		"paths": {
+			"@elemproginter/*": ["elemproginter/*"]
+		}
 	},
-	"include": ["src/**/*", "test/**/*"]
+	"include": ["src/**/*", "test/**/*"],
+	"ts-node": {
+		"require": ["tsconfig-paths/register"]
+	}
 }
