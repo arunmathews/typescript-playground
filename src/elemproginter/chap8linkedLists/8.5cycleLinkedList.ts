@@ -1,4 +1,4 @@
-import { ListNode } from "./listUtils";
+import { ListNode } from "../dataTypes/list";
 
 export function detectCycle<T>(ll: ListNode<T>): ListNode<T> | undefined {
 	let slower: ListNode<T> | undefined = ll;

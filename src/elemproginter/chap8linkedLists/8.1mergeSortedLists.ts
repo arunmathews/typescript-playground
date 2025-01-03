@@ -1,4 +1,4 @@
-import { ListNode, printList } from "./listUtils";
+import { ListNode, printList } from "../dataTypes/list";
 
 export function mergeSortedLists(
 	l1: ListNode<number>,

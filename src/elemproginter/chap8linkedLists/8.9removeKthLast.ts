@@ -1,4 +1,4 @@
-import { ListNode } from "./listUtils";
+import { ListNode } from "../dataTypes/list";
 
 export function removeKthLast<T>(ll: ListNode<T>, k: number): ListNode<T> {
 	let current: ListNode<T> | undefined = ll;

@@ -1,4 +1,4 @@
-import { ListNode } from "./listUtils";
+import { ListNode } from "../dataTypes/list";
 
 export function reverseLinkedList<T>(ll: ListNode<T>): ListNode<T> | undefined {
 	let prev: ListNode<T> | undefined = undefined;

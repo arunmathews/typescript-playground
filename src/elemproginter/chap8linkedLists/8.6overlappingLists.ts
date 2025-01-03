@@ -1,4 +1,4 @@
-import { ListNode } from "./listUtils";
+import { ListNode } from "../dataTypes/list";
 
 export function overlappingLists<T>(
 	l1: ListNode<T>,
