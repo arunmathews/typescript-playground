@@ -26,3 +26,22 @@ export function insert<T>(
 	}
 	return root;
 }
+
+export class TreeNodeWithParent<T> {
+	value: T;
+	left: TreeNodeWithParent<T> | undefined;
+	right: TreeNodeWithParent<T> | undefined;
+	parent: TreeNodeWithParent<T> | undefined;
+
+	constructor(
+		value: T,
+		parent: TreeNodeWithParent<T> | undefined = undefined,
+		left: TreeNodeWithParent<T> | undefined,
+		right: TreeNodeWithParent<T> | undefined,
+	) {
+		this.value = value;
+		this.parent = parent;
+		this.left = left;
+		this.right = right;
+	}
+}
