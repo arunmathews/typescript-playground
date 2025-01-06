@@ -45,3 +45,33 @@ export class TreeNodeWithParent<T> {
 		this.right = right;
 	}
 }
+
+export function inOrderTraversal<T, P>(
+	root: TreeNode<T>,
+	fn: (t: T) => P,
+): void {
+	const maybeLeft = root.left;
+	if (maybeLeft != null) {
+		inOrderTraversal(maybeLeft, fn);
+	}
+	fn(root.value);
+	const maybeRight = root.right;
+	if (maybeRight != null) {
+		inOrderTraversal(maybeRight, fn);
+	}
+}
+
+export function preOrderTraversal<T, P>(
+	root: TreeNode<T>,
+	fn: (t: T) => P,
+): void {
+	fn(root.value);
+	const maybeLeft = root.left;
+	if (maybeLeft != null) {
+		preOrderTraversal(maybeLeft, fn);
+	}
+	const maybeRight = root.right;
+	if (maybeRight != null) {
+		preOrderTraversal(maybeRight, fn);
+	}
+}
