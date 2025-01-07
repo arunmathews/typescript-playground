@@ -52,7 +52,7 @@ export class BinaryHeap<T> {
 	}
 
 	private bubbleDown(index: number): void {
-		const heapLength = this.heap.length - 1;
+		const heapLength = this.heap.length;
 		const currentVal = this.heap[index];
 		while (true) {
 			const leftChildIndex = index * 2 + 1;
