@@ -12,7 +12,6 @@ export class BinaryHeap<T> {
 	public insert(value: T): void {
 		this.heap.push(value);
 		this.bubbleUp(this.heap.length - 1);
-		console.log(this.heap);
 	}
 
 	public extract(): T | undefined {
@@ -23,8 +22,6 @@ export class BinaryHeap<T> {
 		const rootValue = this.heap[0];
 		this.heap[0] = maybeLastValue;
 		this.bubbleDown(0);
-
-		console.log(this.heap);
 
 		return rootValue;
 	}
