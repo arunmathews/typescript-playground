@@ -1,7 +1,7 @@
 type Comparator<T> = (a: T, b: T) => boolean;
 
 export class BinaryHeap<T> {
-	private heap: T[];
+	private heap: Array<T>;
 	private comparator: Comparator<T>;
 
 	constructor(comparator: Comparator<T>) {
@@ -9,74 +9,77 @@ export class BinaryHeap<T> {
 		this.comparator = comparator;
 	}
 
-	insert(value: T): void {
+	public insert(value: T): void {
 		this.heap.push(value);
 		this.bubbleUp(this.heap.length - 1);
+		console.log(this.heap);
 	}
 
-	extract(): T | undefined {
-		if (this.heap.length === 0) {
-			return undefined;
+	public extract(): T | undefined {
+		const maybeLastValue = this.heap.pop();
+		if (maybeLastValue == null) {
+			return maybeLastValue;
 		}
 		const rootValue = this.heap[0];
-		const lastValue = this.heap.pop();
-		if (lastValue != null) {
-			this.heap[0] = lastValue;
-		}
+		this.heap[0] = maybeLastValue;
 		this.bubbleDown(0);
+
+		console.log(this.heap);
+
 		return rootValue;
 	}
 
-	peek(): T | undefined {
+	public peek(): T | undefined {
 		return this.heap[0];
 	}
 
-	size(): number {
+	public size(): number {
 		return this.heap.length;
 	}
 
 	private bubbleUp(index: number): void {
-		const elem = this.heap[index];
 		while (index > 0) {
+			const currentVal = this.heap[index];
 			const parentIdx = Math.floor((index - 1) / 2);
-			const parentElem = this.heap[parentIdx];
-			if (this.comparator(parentElem, elem)) {
+			const parentVal = this.heap[parentIdx];
+			if (this.comparator(parentVal, currentVal)) {
 				break;
 			}
-			this.heap[parentIdx] = elem;
-			this.heap[index] = parentElem;
+			this.heap[index] = parentVal;
+			this.heap[parentIdx] = currentVal;
 			index = parentIdx;
 		}
 	}
 
 	private bubbleDown(index: number): void {
-		const elem = this.heap[index];
-		const length = this.heap.length;
+		const heapLength = this.heap.length - 1;
+		const currentVal = this.heap[index];
 		while (true) {
-			const leftChildIdx = index * 2 + 1;
-			const rightChildIdx = index * 2 + 2;
-			let swapIdx = undefined;
-			if (leftChildIdx < length) {
-				if (!this.comparator(elem, this.heap[leftChildIdx])) {
-					swapIdx = leftChildIdx;
-				}
+			const leftChildIndex = index * 2 + 1;
+			const rightChileIndex = index * 2 + 2;
+			let swapIndex = undefined;
+			if (
+				leftChildIndex < heapLength &&
+				!this.comparator(currentVal, this.heap[leftChildIndex])
+			) {
+				swapIndex = leftChildIndex;
 			}
-			if (rightChildIdx < length) {
+			if (rightChileIndex < heapLength) {
 				if (
-					(swapIdx === undefined &&
-						!this.comparator(elem, this.heap[rightChildIdx])) ||
-					(swapIdx != null &&
-						!this.comparator(this.heap[swapIdx], this.heap[rightChildIdx]))
+					(swapIndex == null &&
+						!this.comparator(currentVal, this.heap[rightChileIndex])) ||
+					(swapIndex != null &&
+						!this.comparator(this.heap[swapIndex], this.heap[rightChileIndex]))
 				) {
-					swapIdx = rightChildIdx;
+					swapIndex = rightChileIndex;
 				}
 			}
-			if (swapIdx == null) {
+			if (swapIndex == null) {
 				break;
 			}
-			this.heap[index] = this.heap[swapIdx];
-			this.heap[swapIdx] = elem;
-			index = swapIdx;
+			this.heap[index] = this.heap[swapIndex];
+			this.heap[swapIndex] = currentVal;
+			index = swapIndex;
 		}
 	}
 }
