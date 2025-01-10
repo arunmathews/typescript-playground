@@ -19,6 +19,9 @@ export class BinaryHeap<T> {
 		if (maybeLastValue == null) {
 			return maybeLastValue;
 		}
+		if (this.heap.length === 0) {
+			return maybeLastValue;
+		}
 		const rootValue = this.heap[0];
 		this.heap[0] = maybeLastValue;
 		this.bubbleDown(0);
