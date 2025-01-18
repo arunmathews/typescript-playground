@@ -4,7 +4,7 @@ type Pos = {
 };
 
 export function nQueens(n: number): Array<string> {
-	let boardList: Pos[][] = [[]]; // Start with an empty board
+	let boardList: Pos[][] = [[]];
 	for (let k = n; k >= 1; k--) {
 		boardList = addQueens(k, n, boardList);
 	}
