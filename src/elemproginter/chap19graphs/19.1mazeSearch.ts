@@ -52,3 +52,69 @@ function dfsSearchHelper(
 
 	return path;
 }
+
+type BFSQueueItem = {
+	pos: GraphPos;
+	path: Array<GraphPos>;
+};
+
+export function mazeSearchBFS(
+	graph: Array<Array<number>>,
+	start: GraphPos,
+	end: GraphPos,
+): Array<GraphPos> | undefined {
+	const queue = new Array<BFSQueueItem>();
+	const visited = new Set<string>();
+	const startQueueItem = {
+		pos: start,
+		path: [start],
+	};
+	queue.push(startQueueItem);
+	while (queue.length > 0) {
+		const nextItem = queue.shift()!;
+		if (nextItem.pos.col === end.col && nextItem.pos.row === end.row) {
+			return nextItem.path;
+		}
+		visited.add(JSON.stringify(queue));
+		const neighbors = findNeighbors(graph, nextItem, visited);
+		queue.push(...neighbors);
+	}
+
+	return undefined;
+}
+
+function findNeighbors(
+	graph: Array<Array<number>>,
+	item: BFSQueueItem,
+	visited: Set<string>,
+): Array<BFSQueueItem> {
+	const moves = [
+		[0, 1],
+		[0, -1],
+		[1, 0],
+		[-1, 0],
+	];
+	const { pos, path } = item;
+	const potentialNeighbors = moves.map(([h, v]) => ({
+		row: pos.row + h,
+		col: pos.col + v,
+	}));
+	return potentialNeighbors
+		.filter((pn) => isValid(graph, pn, visited))
+		.map((n) => ({ pos: n, path: [...path, n] }));
+}
+
+function isValid(
+	graph: Array<Array<number>>,
+	pos: GraphPos,
+	visited: Set<string>,
+): boolean {
+	return (
+		pos.row < graph.length &&
+		pos.row >= 0 &&
+		pos.col < graph[0].length &&
+		pos.col >= 0 &&
+		graph[pos.row][pos.col] === 0 &&
+		!visited.has(JSON.stringify(pos))
+	);
+}
