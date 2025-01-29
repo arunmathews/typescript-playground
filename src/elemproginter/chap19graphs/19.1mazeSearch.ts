@@ -75,7 +75,7 @@ export function mazeSearchBFS(
 		if (nextItem.pos.col === end.col && nextItem.pos.row === end.row) {
 			return nextItem.path;
 		}
-		visited.add(JSON.stringify(queue));
+		visited.add(JSON.stringify(nextItem));
 		const neighbors = findNeighbors(graph, nextItem, visited);
 		queue.push(...neighbors);
 	}

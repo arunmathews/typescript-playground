@@ -13,14 +13,14 @@ export function reverseLinkedList<T>(ll: ListNode<T>): ListNode<T> | undefined {
 	return prev;
 }
 
-export function reverseLinkedListRec<T>(
+export function reverseLinkedListRec2<T>(
 	ll: ListNode<T>,
 ): ListNode<T> | undefined {
 	if (ll == null || ll.next == null) {
 		return ll;
 	}
 
-	const prev = reverseLinkedListRec(ll.next);
+	const prev = reverseLinkedListRec2(ll.next);
 	ll.next.next = ll;
 
 	return prev;
