@@ -9,7 +9,8 @@ export function airportWithMostTraffic(flights: string[][]): string | undefined 
         depMap.set(dep, depCount+1);
     }
 
-    const allCities = new Set(...arrMap.keys(),...depMap.keys());
+    const allCities = new Set([...arrMap.keys(),...depMap.keys()]);
+    
     let maxTraffic = 0;
     let maxTrafficCity: string | undefined = undefined;
     for(const city of allCities) {
