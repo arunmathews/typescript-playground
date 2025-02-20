@@ -6,7 +6,7 @@ export function reconstructBinaryTree<T>(
 ): TreeNode<T> | undefined {
 	if (inOrder.length != preOrder.length) {
 		throw new Error(
-			"Both inorder list length and preorder list length should be the same size",
+			"Both in order list length and pre order list length should be the same size",
 		);
 	}
 	if (inOrder.length === 0) {
